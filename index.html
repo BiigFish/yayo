@@ -4,21 +4,80 @@
     <title>yayo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-body, html {
+    html, body{
+    margin: 0;
+    padding:0;
     height: 100%;
-    margin:0;
+    background-color: grey;
 }
 
-.background {
-    background-image: url(images/yayo-website.jpg);
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+#slide{
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    position:fixed;
+    width:100%;
+    height:100%;
 }
+
+.slide1{
+      background: url(images/Slide1.JPG) no-repeat center center fixed; 
+ 
+    }
+.slide2{
+      background: url(images/Slide2.JPG) no-repeat center center fixed; 
+    }
+.slide3{
+      background: url(images/Slide3.JPG) no-repeat right center fixed; 
+    }
+
+.slide4{
+    background: url(images/Slide4.JPG) no-repeat center center fixed; 
+}
+.slide5{
+    background: url(images/Slide5.JPG) no-repeat left center fixed; 
+}
+.slide6{
+    background: url(images/Slide6.JPG) no-repeat center center fixed; 
+}
+.slide7{
+    background: url(images/Slide7.JPG) no-repeat center center fixed; 
+}
+.slide8{
+    background: url(images/Slide8.JPG) no-repeat center center fixed; 
+}
+.slide9{
+    background: url(images/Slide9.JPG) no-repeat left center fixed; 
+}
+.slide10{
+    background: url(images/Slide10.JPG) no-repeat center center fixed; 
+}
+/*slideshow based off Jonathan Snook's tutorial:
+http://snook.ca/archives/javascript/simplest-jquery-slideshow */
 </style>
 </head>
+
 <body>
-    <div class="background"></div>
+    <div class="fadein"> 
+        <div id="slide"class="slide1"></div>
+        <div id="slide"class="slide2"></div>
+        <div id="slide"class="slide3"></div>
+        <div id="slide"class="slide4"></div>
+        <div id="slide"class="slide5"></div>
+        <div id="slide"class="slide6"></div>
+        <div id="slide"class="slide7"></div>
+        <div id="slide"class="slide8"></div>
+        <div id="slide"class="slide9"></div>
+        <div id="slide"class="slide10"></div>
+   </div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(function () {
+    $('.fadein div:gt(0)').hide();
+    setInterval(function () {
+      $('.fadein :first-child').fadeOut(1000).next('div').fadeIn(1000).end().appendTo('.fadein');
+     }, 5000);
+  });
+</script>
 </body>
-</html>
